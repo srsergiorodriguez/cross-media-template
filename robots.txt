@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://srsergiorodriguez.github.io/cross-media-template/sitemap.xml

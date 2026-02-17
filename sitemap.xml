@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="https://srsergiorodriguez.github.io/cross-media-template/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<url>
+<loc>https://srsergiorodriguez.github.io/cross-media-template/</loc>
+</url>
+<url>
+<loc>https://srsergiorodriguez.github.io/cross-media-template/footer-test-page.html</loc>
+<lastmod>2026-02-17T09:07:45-05:00</lastmod>
+</url>
+<url>
+<loc>https://srsergiorodriguez.github.io/cross-media-template/test-page.html</loc>
+<lastmod>2026-02-17T09:50:56-05:00</lastmod>
+<image:image>
+<image:loc>https://srsergiorodriguez.github.io/cross-media-template/media/posts/2/18086-20.jpg</image:loc>
+<image:title><![CDATA[]]></image:title>
+</image:image>
+<image:image>
+<image:loc>https://srsergiorodriguez.github.io/cross-media-template/media/posts/2/18086-21.jpg</image:loc>
+<image:title><![CDATA[]]></image:title>
+</image:image>
+</url>
+<url>
+<loc>https://srsergiorodriguez.github.io/cross-media-template/test-pos.html</loc>
+<lastmod>2026-02-17T16:26:12-05:00</lastmod>
+<image:image>
+<image:loc>https://srsergiorodriguez.github.io/cross-media-template/media/posts/1/Kibo.png</image:loc>
+<image:title><![CDATA[]]></image:title>
+</image:image>
+<image:image>
+<image:loc>https://srsergiorodriguez.github.io/cross-media-template/media/posts/1/Kibo-2.png</image:loc>
+<image:title><![CDATA[]]></image:title>
+</image:image>
+</url>
+</urlset>
