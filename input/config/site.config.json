@@ -1,0 +1,11 @@
+{
+    "uuid": "uuid-1771330351661-807645256",
+    "name": "cross-media-template",
+    "description": "",
+    "displayName": "Cross media template",
+    "logo": {
+        "icon": "web-umbrella",
+        "color": 1
+    },
+    "theme": "simple"
+}
