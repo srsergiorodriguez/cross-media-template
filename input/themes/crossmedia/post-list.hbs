@@ -1,0 +1,50 @@
+{{! Post page; this file renders a single post and loads all the content}}
+{{> head}}
+{{> navbar}}
+<main>
+
+   {{! indicates the post's context}}
+   {{#post}}
+      <article>
+         <header>
+
+            {{! post title }}
+            <h1>
+               {{title}}
+            </h1>
+            {{! /post title }}
+
+         </header>
+
+         {{! post body }}
+         <div id="post-entry">
+            {{{text}}}
+         </div>
+         {{! /post body }}
+
+        {{!-- 1. The Mounting Point --}}
+        <div id="svelte-list-app"></div>
+
+        {{!-- 2. The Bridge: Variables for Svelte --}}
+        <script>
+          window.PUBLII_CONTEXT = {
+              assets: "{{@website.assetsUrl}}",
+              media: "{{@website.mediaFilesUrl}}",
+              lang: "{{@website.language}}",
+              postTitle: "{{title}}" // {{! Just in case your app needs the title }}
+          };
+        </script>
+
+        {{!-- 3. The Script (Use @website.assetsUrl to be portable) --}}
+        <script defer src="{{@website.assetsUrl}}/js/list-app.js"></script>
+
+      </article>
+   {{/post}}
+   {{! /indicates the post's context}}
+
+</main>
+<aside>
+   {{> sidebar}}
+</aside>
+
+{{> footer}}

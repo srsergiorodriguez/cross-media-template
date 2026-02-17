@@ -1,0 +1,46 @@
+import { defineConfig } from 'vite';
+import { svelte } from '@sveltejs/vite-plugin-svelte';
+import { viteSingleFile } from 'vite-plugin-singlefile';
+
+export default defineConfig({
+  plugins: [
+    svelte({
+      // Include CSS inside the JS bundle
+      emitCss: false
+    }),
+    // This plugin merges CSS into the JS file to have ONE file to link in Publii
+    viteSingleFile()
+  ],
+  build: {
+    // Publii theme folder js folder
+    outDir: '../input/themes/crossmedia/assets/js', 
+    
+    // We don't want to delete other files in the theme's js folder
+    emptyOutDir: false,
+
+    // This ensures CSS is injected into the JS file
+    assetsInlineLimit: 100000000, 
+    chunkSizeWarningLimit: 100000000,
+    cssCodeSplit: false,
+    
+    rollupOptions: {
+      // Define the different "apps" here
+      input: {
+        'list-app': './src/apps/list/main.js',
+        // 'audio-player': './src/apps/player/main.js'
+      },
+      output: {
+        // [name] will be replaced by 'repo-app' or 'audio-player'
+        entryFileNames: '[name].js',
+        // 'iife' is critical: it prevents naming conflicts if both apps 
+        // are on the same page
+        format: 'iife' ,
+        // Svelte CSS inlining
+        inlineDynamicImports: true
+      }
+    },
+    
+    // Optimization for older browsers
+    target: 'es2015',
+  },
+});
