@@ -1,6 +1,15 @@
 import { mount } from 'svelte';
 import App from './App.svelte';
 
+/* {
+  Examples:
+  "assets":"file:///USERPATH/Publii/sites/cross-media-template/preview/assets",
+  "media":"file:///USERPATH/Publii/sites/cross-media-template/preview/media/files/",
+  "lang":"es",
+  "postTitle":"Test post"}
+  https://getpublii.com/dev/introduction-global-variables/
+*/
+
 const target = document.getElementById('svelte-list-app');
 
 if (target) {

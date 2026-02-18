@@ -1,97 +1,162 @@
 <script>
-  import Papa from 'papaparse';
+  import devData from '$api/data.json';
 
-  // In Svelte 5, we use the $props() rune to get data from the outside
+  // Svelte 5 uses the $props() rune to get data from the outside
   let { message, config } = $props();
 
   let items = $state([]);
   let loading = $state(true);
 
-  async function loadCSV() {
-    // We use the assets path from our Publii bridge
-    // const url = `${config.media}/data/publications.csv`;
-    const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTVeaLQWAIhdwPIUVNLZBjHuZQSyYOgkBoU3cvSKHaCKwZyBHfOs7ywsgVC4Nb3BkQTCJjeCtzhtFJN/pub?output=csv";
+  async function loadData() {
+    // Check if we are in dev or in production
+    const isLive = window.location.protocol === 'https:' || window.location.protocol === 'http:';
     
     try {
-      const response = await fetch(url);
-      const csvText = await response.text();
-
-      const results = await new Promise((resolve, reject) => {
-        Papa.parse(csvText, {
-          header: true,
-          skipEmptyLines: 'greedy',
-          complete: resolve,
-          error: reject
-        });
-      });
-
-      // Verification: Check your headers in the console!
-      //console.log("Headers found:", Object.keys(results.data[0]));
-      
-      items = results.data;
+      if (!isLive || window.location.hostname === 'localhost') {
+        // Local Vite development fallback
+        items = devData;
+      } else {
+        const url = `${config.media}api/data.json`;
+        const response = await fetch(url);
+        items = await response.json();      
+      }
     } catch (err) {
-      console.error("Error loading CSV:", err);
+      console.error("Error loading Data:", err);
     } finally {
       loading = false;
     }
   }
 
   $effect(() => {
-    loadCSV();
+    loadData();
   });
 
-  /* {
-    "assets":"file:///Users/sergiorodriguez/Documents/Publii/sites/cross-media-template/preview/assets",
-    "media":"file:///Users/sergiorodriguez/Documents/Publii/sites/cross-media-template/preview/media/files/",
-    "lang":"es",
-    "postTitle":"Test post"}
-    https://getpublii.com/dev/introduction-global-variables/
-  */
-
-  // We use the $state() rune for reactivity
-  let count = $state(0);
-
-  function increment() {
-    count += 1;
+  // Helper function to safely resolve image paths whether in dev or Publii
+  function getImagePath(pid) {
+    const basePath = config?.media ? config.media : '/media/files/';
+    return `${basePath}images/${pid}.jpg`;
   }
 </script>
 
-<div class="test-container">
-  <h1>{message}</h1>
-  <!-- <pre>{JSON.stringify(items[0], null, 2)}</pre> -->
-  <p>Status: <strong>Svelte 5 Runes are Active</strong></p>
-  
-  <button onclick={increment}>
-    Interactive Check: {count}
-  </button>
-
+<div class="catalog-container">  
   {#if loading}
-    <p>Cargando catálogo...</p>
+    <p class="loading-text">Cargando catálogo...</p>
   {:else}
-    <ul>
-      {#each items as item}
-        <li><strong>{item.name}</strong> ({item.date})</li>
-      {/each}
-    </ul>
+    <div class="table-responsive">
+      <table class="metadata-table">
+        <thead>
+          <tr>
+            <th>Imagen</th>
+            <th>Título</th>
+            <th>Autores</th>
+            <th>Año</th>
+            <th>Ubicación</th>
+            <th>Formato</th>
+          </tr>
+        </thead>
+        <tbody>
+          {#each items as item}
+            <tr>
+              <td class="img-cell">
+                <img src={getImagePath(item.pid)} alt={item.label} loading="lazy" />
+              </td>
+              <td class="title-cell"><strong>{item.label}</strong></td>
+              <td>{item.autores}</td>
+              <td class="center-text">{item.fecha}</td>
+              <td>{item.ciudad}, {item.pais}</td>
+              <td>
+                <span class="tag">{item.tipo_principal}</span>
+                <span class="tag tag-outline">{item.medio_impresion}</span>
+              </td>
+            </tr>
+          {/each}
+        </tbody>
+      </table>
+    </div>
   {/if}
-
 </div>
 
 <style>
-  .test-container {
+  .catalog-container {
     padding: 20px;
-    border: 2px solid #ff3e00; /* Svelte Orange */
-    border-radius: 8px;
-    background: #fff5f0;
+    background: #ffffff;
     font-family: sans-serif;
+    color: #333;
   }
-  
-  button {
-    background: #ff3e00;
-    color: white;
-    border: none;
-    padding: 10px 20px;
+
+  .loading-text {
+    font-style: italic;
+    color: #666;
+  }
+
+  /* Make the table scroll horizontally on small screens */
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+  .metadata-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  .metadata-table th, 
+  .metadata-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eaeaea;
+    vertical-align: middle;
+  }
+
+  .metadata-table th {
+    background-color: #f9f9f9;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+  }
+
+  .metadata-table tr:hover {
+    background-color: #fcfcfc;
+  }
+
+  .title-cell strong {
+    font-size: 1.05rem;
+    color: #000;
+  }
+
+  .center-text {
+    text-align: center;
+  }
+
+  /* Image Styling */
+  .img-cell {
+    width: 80px; /* Fixed width for the image column */
+  }
+
+  .img-cell img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover; /* Ensures images are square without stretching */
     border-radius: 4px;
-    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  /* Tags for the format/medium */
+  .tag {
+    display: inline-block;
+    padding: 4px 8px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    font-size: 0.75rem;
+    background: #eee;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .tag-outline {
+    background: transparent;
+    border: 1px solid #ccc;
   }
 </style>

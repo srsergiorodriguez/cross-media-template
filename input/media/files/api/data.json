@@ -1,0 +1,42 @@
+[
+  {
+    "pid": "ayayaysergio_lp4u3sgcl2",
+    "label": "Ayayay",
+    "autores": "Sergio Rodríguez Gómez",
+    "fecha": 2022,
+    "ciudad": "Bogotá",
+    "pais": "Colombia",
+    "tipo_principal": "Cómic",
+    "medio_impresion": "Fotocopia"
+  },
+  {
+    "pid": "milagrossins_lp4sfoa5bk",
+    "label": "Milagros",
+    "autores": "Sebastián Arriaga, Rafael Díaz, Sergio Rodríguez Gómez, José Sanín",
+    "fecha": 2012,
+    "ciudad": "Bogotá",
+    "pais": "Colombia",
+    "tipo_principal": "Ilustración",
+    "medio_impresion": "Offset"
+  },
+  {
+    "pid": "elefantesyji_lp4ufc0677",
+    "label": "Elefantes y Jirafas",
+    "autores": "Juan Duarte, María Vanegas, Pavel Molano, Hugo Quintero, Verónica Cháves, Sergio Rodríguez Gómez, Andrea Gaitán",
+    "fecha": 2023,
+    "ciudad": "Bogotá",
+    "pais": "Colombia",
+    "tipo_principal": "Cómic",
+    "medio_impresion": "Offset"
+  },
+  {
+    "pid": "theinvisible_lp4u32w3t0",
+    "label": "The Invisible College Catalog",
+    "autores": "Isabella Viega, Ryan Cordell, Emerson Parker Pehl, Ocean Val Arboniés Flores, D. E., Sebastián González, Bethany Anderson, Sergio Rodríguez Gómez, Lilah Leopold, Natalia Espinel",
+    "fecha": 2023,
+    "ciudad": "Urbana",
+    "pais": "Estados Unidos",
+    "tipo_principal": "Ilustración",
+    "medio_impresion": "Fotocopia"
+  }
+]

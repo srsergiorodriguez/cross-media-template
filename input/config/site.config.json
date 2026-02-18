@@ -3,7 +3,7 @@
     "name": "cross-media-template",
     "displayName": "Cross media template",
     "description": "",
-    "synced": false,
+    "synced": "synced",
     "logo": {
         "color": 1,
         "icon": "web-umbrella"
@@ -235,5 +235,6 @@
             "outputDirectory": ""
         }
     },
-    "theme": "crossmedia"
+    "theme": "crossmedia",
+    "syncDate": 1771384598743
 }

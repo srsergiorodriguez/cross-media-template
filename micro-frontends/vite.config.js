@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 import { viteSingleFile } from 'vite-plugin-singlefile';
+import path from 'path';
 
 export default defineConfig({
   plugins: [
@@ -11,6 +12,11 @@ export default defineConfig({
     // This plugin merges CSS into the JS file to have ONE file to link in Publii
     viteSingleFile()
   ],
+  resolve: {
+    alias: {
+      '$api': path.resolve(__dirname, '../input/media/files/api'),
+    }
+  },
   build: {
     // Publii theme folder js folder
     outDir: '../input/themes/crossmedia/assets/js', 
