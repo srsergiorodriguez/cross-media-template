@@ -14,8 +14,7 @@ const parser = new XMLParser({
 });
 
 async function fetchPage(resumptionToken = "") {
-  // We use oai_dc for speed/simplicity, or 'mets' for deep data
-  // Let's stick to oai_dc for the first full test of 12k items
+  // Use oai_dc for speed/simplicity, or 'mets' for deep data
   const url = resumptionToken
     ? `${BASE_URL}?verb=ListRecords&resumptionToken=${resumptionToken}`
     : `${BASE_URL}?verb=ListRecords&metadataPrefix=oai_dc`;
@@ -77,13 +76,13 @@ async function startHarvest() {
       if (result.resumptionToken && result.resumptionToken['#text']) {
         currentToken = result.resumptionToken['#text'];
         page++;
-        // 12,000 items is a lot. Let's pause 1s between pages to be a good guest.
+        // Wait to give the queries some rest
         await new Promise(r => setTimeout(r, 1000));
       } else {
         hasMore = false;
       }
 
-      // SAFETY LIMIT for your first test run. Remove this to get all
+      // Limit for testing
       // if (page > 2) hasMore = false;
     }
 
