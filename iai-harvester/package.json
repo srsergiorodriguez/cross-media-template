@@ -1,0 +1,17 @@
+{
+  "name": "iai-harvester",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "harvest": "node harvester.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "fast-xml-parser": "^5.3.6"
+  }
+}
