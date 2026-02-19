@@ -5,8 +5,48 @@
     <title>{{title}} - {{@website.name}}</title>
     
     <style>
+      :root {
+        --page-width: 5.5in;
+        --page-height: 8.1in; 
+      }
+
       body {
         background-color: gray;
+      }
+
+      /* Page config */
+      @page {
+        margin: 20mm 13mm 20mm 13mm; /* top, right, bottom, left */
+
+        @top-center {
+          content: "{{@website.name}}"; /* Project name */
+          font-family: sans-serif;
+          font-size: 8pt;
+          color: #666;
+        }
+      }
+
+      /* Even pages, left */
+      @page :left {
+        margin-right: 16mm;
+        margin-left: 40mm; /* Uncomment this when using sidenotes */
+
+        @top-left {
+          content: counter(page);
+          font-family: sans-serif;
+          font-size: 8pt;
+        }
+      }
+
+      /* Odd pages, right */
+      @page :right {
+        margin-left: 16mm;
+        margin-right: 40mm; /* Uncomment this when using sidenotes */
+        @top-right {
+          content: counter(page);
+          font-family: sans-serif;
+          font-size: 8pt;
+        }
       }
 
       #page-entry {
@@ -23,6 +63,21 @@
         widows: 2;  /* Minimum lines at the top of a page */
       }
 
+      @media print {
+        .pagedjs_pages {
+          display: block !important;
+          padding: 0 !important;
+        }
+        .pagedjs_page {
+          background-color: white;
+          margin: 0 !important;
+          border: none !important;
+          margin-bottom: 10px !important;
+        }
+      }
+
+      /* Text */
+
       h1, h2, h3, h4, h5, h6 {
         text-align: left;
         text-align-last: left;
@@ -31,6 +86,8 @@
 
       h1 { font-family: sans-serif; text-align: center; text-align-last: center; margin-bottom: 2rem; }
 
+      /* Images (following Publii's image classes) */
+
       img { 
         max-width: 100% !important; 
         height: auto !important; /* lock aspect ratio */
@@ -38,8 +95,6 @@
         display: block;
         margin: 0 auto;
       }
-
-      /* --- PUBLII IMAGE CLASSES FOR PRINT (PAGED.JS SAFE) --- */
 
       figure.post__image {
         display: block !important;
@@ -91,8 +146,7 @@
         width: 100% !important;
         margin: 0.5rem 0 !important;
       }
-      
-      /* Base Caption Defaults */
+
       figcaption {
         font-family: sans-serif;
         font-size: 8pt;
@@ -101,58 +155,7 @@
         display: block;
       }
 
-      @page {
-        /* size: letter;
-        margin: 25mm 20mm;
-        */
-        size: 5.5in 8.5in; /* Half letter */
-        margin: 20mm 13mm 20mm 13mm; /* top, right, bottom, left */
-
-        @top-center {
-          content: "{{@website.name}}"; /* Project name */
-          font-family: sans-serif;
-          font-size: 8pt;
-          color: #666;
-        }
-      }
-
-      /* EVEN PAGES (Left side of the spread) */
-      @page :left {
-        margin-right: 16mm;
-        margin-left: 40mm; /* Uncomment this when using sidenotes */
-
-        @top-left {
-          content: counter(page);
-          font-family: sans-serif;
-          font-size: 8pt;
-        }
-      }
-
-      /* ODD PAGES (Right side of the spread) */
-      @page :right {
-        margin-left: 16mm;
-        margin-right: 40mm; /* Uncomment this when using sidenotes */
-        @top-right {
-          content: counter(page);
-          font-family: sans-serif;
-          font-size: 8pt;
-        }
-      }
-
-      @media print {
-        .pagedjs_pages {
-          display: block !important;
-          padding: 0 !important;
-        }
-        .pagedjs_page {
-          background-color: white;
-          margin: 0 !important;
-          border: none !important;
-          margin-bottom: 10px !important;
-        }
-      }
-
-      /* --- SIDENOTES --- */
+      /* --- Sidenotes --- */
       .sidenote {
         width: 25mm;
         font-family: sans-serif;
@@ -173,6 +176,45 @@
       .pagedjs_right_page .sidenote {
         float: right;
         margin-right: -30mm;
+      }
+
+      /* Canvas page */
+      /* Create a 'Named Page' specifically for canvas generated pages */
+      @page canvaspage {
+        margin: 0; /* Full bleed, no margins */
+        @top-left { content: none; }
+        @top-right { content: none; }
+        @top-center { content: none; }
+      }
+
+      .canvas-page {
+        page: canvaspage; /* Apply the named page */
+        break-after: page;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      /* Position the title over the canvas */
+      .canvas-page h1 {
+        position: absolute;
+        color: white;
+        z-index: 10;
+        font-family: sans-serif;
+        font-size: 24pt;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        mix-blend-mode: difference;
+      }
+
+      .generative-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
       }
       
     </style>
@@ -208,14 +250,13 @@
         }
       }
     </style>
-
   </head>
-
   <body>
     <main class="page print-container">
       {{#page}}
         <article>
-          <header class="print-cover">
+          <header class="canvas-page">
+            <canvas id="generative-canvas" class="generative-canvas"></canvas>
             <h1>{{title}}</h1>
           </header>
 
@@ -236,8 +277,8 @@
       </ol>
       <code>pdfcpu booklet fanzine-impreso.pdf tu-archivo-descargado.pdf</code>
     </div>
-
-    <script defer src="{{@website.assetsUrl}}/js/paged.polyfill.js"></script>
-
   </body>
+
+  <script src="{{@website.assetsUrl}}/js/zine.js"></script>
+  <script src="{{@website.assetsUrl}}/js/paged.polyfill.js" onload="startZine()"></script>
 </html>

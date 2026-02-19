@@ -1,0 +1,4 @@
+{
+  "extended_valid_elements": ["dh-nutshell[message]"],
+  "custom_elements": ["dh-nutshell"]
+}

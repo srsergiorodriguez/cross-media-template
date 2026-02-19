@@ -2,7 +2,7 @@
   import devData from '$api/data.json';
 
   // Svelte 5 uses the $props() rune to get data from the outside
-  let { message, config } = $props();
+  let { config } = $props();
 
   let items = $state([]);
   let loading = $state(true);

@@ -1,5 +1,6 @@
 [
   {
+    "id": "1",
     "pid": "ayayaysergio_lp4u3sgcl2",
     "label": "Ayayay",
     "autores": "Sergio Rodríguez Gómez",
@@ -10,6 +11,7 @@
     "medio_impresion": "Fotocopia"
   },
   {
+    "id": "2",
     "pid": "milagrossins_lp4sfoa5bk",
     "label": "Milagros",
     "autores": "Sebastián Arriaga, Rafael Díaz, Sergio Rodríguez Gómez, José Sanín",
@@ -20,6 +22,7 @@
     "medio_impresion": "Offset"
   },
   {
+    "id": "3",
     "pid": "elefantesyji_lp4ufc0677",
     "label": "Elefantes y Jirafas",
     "autores": "Juan Duarte, María Vanegas, Pavel Molano, Hugo Quintero, Verónica Cháves, Sergio Rodríguez Gómez, Andrea Gaitán",
@@ -30,6 +33,7 @@
     "medio_impresion": "Offset"
   },
   {
+    "id": "4",
     "pid": "theinvisible_lp4u32w3t0",
     "label": "The Invisible College Catalog",
     "autores": "Isabella Viega, Ryan Cordell, Emerson Parker Pehl, Ocean Val Arboniés Flores, D. E., Sebastián González, Bethany Anderson, Sergio Rodríguez Gómez, Lilah Leopold, Natalia Espinel",

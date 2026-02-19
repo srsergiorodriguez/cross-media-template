@@ -24,6 +24,7 @@
 
         {{!-- 1. The Mounting Point --}}
         <div id="svelte-list-app"></div>
+        <div id="svelte-collection-app"></div>
 
         {{!-- 2. The Bridge: Variables for Svelte --}}
         <script>
@@ -37,6 +38,7 @@
 
         {{!-- 3. The Script (Use @website.assetsUrl to be portable) --}}
         <script defer src="{{@website.assetsUrl}}/js/list-app.js"></script>
+        <script defer src="{{@website.assetsUrl}}/js/collection-app.js"></script>
 
       </article>
    {{/post}}

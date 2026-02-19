@@ -32,8 +32,8 @@ export default defineConfig({
     rollupOptions: {
       // Define the different "apps" here
       input: {
-        'list-app': './src/apps/list/main.js',
-        // 'audio-player': './src/apps/player/main.js'
+        // 'list-app': './src/apps/list/main.js',
+        'collection-app': './src/apps/collection/main.js'
       },
       output: {
         // [name] will be replaced by 'repo-app' or 'audio-player'

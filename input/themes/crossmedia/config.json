@@ -24,6 +24,10 @@
             "afterPost": "After every post"
         }
     },
+    "extensions": {
+        "postEditorConfigOverride": true,
+        "postEditorCustomScript": true
+    },
     "supportedFeatures": {
         "blockEditor": true,
         "tagsList": true,
