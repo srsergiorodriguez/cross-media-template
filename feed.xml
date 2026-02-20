@@ -3,7 +3,7 @@
     <title>Cross media template</title>
     <link href="https://srsergiorodriguez.github.io/cross-media-template/feed.xml" rel="self" />
     <link href="https://srsergiorodriguez.github.io/cross-media-template" />
-    <updated>2026-02-17T17:15:15-05:00</updated>
+    <updated>2026-02-19T16:54:10-05:00</updated>
     <author>
         <name>Sergio Rodríguez Gómez</name>
     </author>
@@ -30,6 +30,7 @@
                     <p><img src="https://srsergiorodriguez.github.io/cross-media-template/media/posts/1/Kibo.png" class="type:primaryImage" alt="" /></p>
                 <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
 <p>Fusce facilisis lacus id semper fringilla. Praesent ultrices risus sed nisi vehicula auctor. Nulla facilisi. Fusce pretium, enim sit amet condimentum venenatis, massa nibh suscipit ligula, nec gravida dui orci gravida enim. In efficitur semper risus, in sagittis leo faucibus in. Aliquam id est ac neque porta sodales. Aliquam dui arcu, auctor a lorem non, sollicitudin imperdiet dolor. Vestibulum pellentesque aliquam quam nec congue. Donec molestie neque ac turpis varius congue.</p>
+<div class="post__iframe"><iframe loading="lazy" title="Descripción del contenido" src="https://digital.iai.spk-berlin.de/viewer/index/" width="900" height="400"></iframe></div>
 <p>Mauris sit amet dapibus eros, sit amet vehicula mauris. Morbi sed nulla vehicula, faucibus est ac, dapibus dui. Quisque vel diam ac odio porttitor dignissim pellentesque a sem. Nullam ullamcorper, est ac congue luctus, erat nunc lobortis nulla, non rhoncus leo odio a eros. Suspendisse lacinia iaculis ligula, non mollis diam pellentesque sed. Praesent accumsan lacus tellus, vitae rutrum risus suscipit at. Nulla rutrum mi a tortor faucibus cursus.</p>
 <h2>In mollis purus eu leo pharetra porttitor.</h2>
 <p>Nulla eu aliquet leo. Nunc vitae sapien sed sapien tincidunt rutrum pulvinar nec risus. Quisque pretium vel neque ut hendrerit. Quisque sit amet lacinia libero. Sed egestas elit nisi, at fermentum sem elementum eget. Cras ut dignissim lacus. Suspendisse euismod consectetur est id malesuada.</p>
