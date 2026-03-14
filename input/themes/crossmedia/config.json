@@ -345,6 +345,8 @@
         "list": "Repository List Template"
     },
     "pageTemplates": {
-        "print": "Printable Page Template"
+        "print": "Printable Page Template",
+        "item": "Collection Item Template",
+        "collection": "Collection Index Template"
     }
 }

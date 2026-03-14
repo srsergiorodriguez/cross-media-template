@@ -15,6 +15,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '$api': path.resolve(__dirname, '../input/media/files/api'),
+      '$collection': path.resolve(__dirname, '../preview/media/files/collection'),
     }
   },
   build: {

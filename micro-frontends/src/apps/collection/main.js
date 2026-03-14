@@ -1,13 +1,13 @@
 import { mount } from 'svelte';
-import App from './App.svelte';
+import CollectionApp from './App.svelte';
 
-const target = document.getElementById('svelte-collection-app');
+const target = document.getElementById('mirla-collection-app');
 
 if (target) {  
-  mount(App, {
+  mount(CollectionApp, {
     target: target,
     props: {
-      config: window.PUBLII_CONTEXT || {}
+      config: window.MIRLA_CONTEXT || { siteDomain: '' }
     }
   });
 }
