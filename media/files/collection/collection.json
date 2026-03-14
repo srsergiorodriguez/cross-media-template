@@ -1,0 +1,62 @@
+{
+  "protocol": {
+    "pid": "pid",
+    "label": "label",
+    "Fecha": "date",
+    "Precio": "number",
+    "Enlace": "link",
+    "VideoYt": "youtube",
+    "Ref": "ref",
+    "Image": "image",
+    "Video": "video",
+    "Audio": "audio"
+  },
+  "items": [
+    {
+      "pid": "ayay1",
+      "label": "Ayayay",
+      "Fecha": 2000,
+      "Precio": 5000,
+      "Enlace": "https://4mesas.github.io/",
+      "VideoYt": "2bFF8yd-G00",
+      "Ref": "invi2/elef3",
+      "Image": "testImage.png",
+      "Video": "testVideo.mov",
+      "Audio": "testAudio.m4a",
+      "images": [
+        "https://srsergiorodriguez.github.io/cross-media-template/media/files/collection/images/ayay1.png"
+      ]
+    },
+    {
+      "pid": "invi2",
+      "label": "Invisible college catalog",
+      "Fecha": 1990,
+      "Precio": 15000,
+      "Enlace": "https://digital.library.illinois.edu/",
+      "VideoYt": "2bFF8yd-G00",
+      "Ref": null,
+      "Image": "testImage.png",
+      "Video": "testVideo.mov",
+      "Audio": "testAudio.m4a",
+      "images": [
+        "https://srsergiorodriguez.github.io/cross-media-template/media/files/collection/images/invi2.jpg"
+      ]
+    },
+    {
+      "pid": "elef3",
+      "label": "Elefantes y jirafas",
+      "Fecha": 2022,
+      "Precio": 35000,
+      "Enlace": "https://srsergiorodriguez.github.io/",
+      "VideoYt": "ymTwVM9Tiac",
+      "Ref": "invi2/elef3",
+      "Image": "testImage.png",
+      "Video": "testVideo.mov",
+      "Audio": "testAudio.m4a",
+      "images": [
+        "https://srsergiorodriguez.github.io/cross-media-template/media/files/collection/images/elef3/elef3_1.jpg",
+        "https://srsergiorodriguez.github.io/cross-media-template/media/files/collection/images/elef3/elef3_2.jpg"
+      ]
+    }
+  ]
+}

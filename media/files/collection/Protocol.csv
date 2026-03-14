@@ -1,0 +1,11 @@
+Attribute,Type
+pid,pid
+label,label
+Fecha,date
+Precio,number
+Enlace,link
+VideoYt,youtube
+Ref,ref
+Image,image
+Video,video
+Audio,audio

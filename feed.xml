@@ -19,7 +19,7 @@
         <media:content url="https://srsergiorodriguez.github.io/cross-media-template/media/posts/1/Kibo.png" medium="image" />
 
         <updated>2026-02-17T09:04:10-05:00</updated>
-            <summary>
+            <summary type="html">
                 <![CDATA[
                         <img src="https://srsergiorodriguez.github.io/cross-media-template/media/posts/1/Kibo.png" alt="" />
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce facilisis lacus id semper fringilla. Praesent ultrices risus sed nisi vehicula auctor. Nulla facilisi. Fusce pretium,&hellip;

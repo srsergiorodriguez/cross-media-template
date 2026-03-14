@@ -2,7 +2,6 @@
  * Handles Paged.js configuration, dynamic sizing, and generative pages.
  */
 
-
 window.PagedConfig = { auto: false }; // Avoid Paged.js auto start
 
 // HELPER: Convert CSS units (in, mm, cm) to pixels at 300 DPI
