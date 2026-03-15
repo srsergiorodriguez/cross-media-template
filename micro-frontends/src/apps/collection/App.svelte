@@ -6,7 +6,7 @@
 
   let metadataItems = $state([]);
   let protocol = $state({});
-  let filters = $state([]); // <--- New reactive state
+  let filters = $state([]);
   let loading = $state(true);
   
   let searchQuery = $state("");
